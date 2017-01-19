@@ -1,0 +1,22 @@
+{
+    "name": "jamiec/outsidein",
+    "type": "project",
+    "require-dev": {
+        "phpunit/phpunit": "^4.8",
+        "mockery/mockery": "^0.9.5",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "authors": [
+        {
+            "name": "Jamie Cuthill",
+            "email": "jamiec@flypay.co.uk"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "OutsideIn\\": "src/OutsideIn",
+            "OutsideIn\\Tests\\": "tests"
+        }
+    }
+}
