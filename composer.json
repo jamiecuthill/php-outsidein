@@ -12,7 +12,9 @@
             "email": "jamiec@flypay.co.uk"
         }
     ],
-    "require": {},
+    "require": {
+        "slim/slim": "^3.0"
+    },
     "autoload": {
         "psr-4": {
             "OutsideIn\\": "src/OutsideIn",
