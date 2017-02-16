@@ -12,3 +12,6 @@ $app->get('/health', function (Request $request, Response $response) {
   $response = $response->withJson(['status' => 'OK']);
   return $response;
 });
+
+$app->get('/burger', function (Request $request, Response $response) {
+});

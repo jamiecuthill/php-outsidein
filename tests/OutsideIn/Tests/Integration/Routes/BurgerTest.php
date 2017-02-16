@@ -2,7 +2,14 @@
 
 namespace OutsideIn\Tests\Integration\Routes;
 
-class BurgerTest
-{
+use OutsideIn\Tests\Integration\IntegrationTest;
 
+class BurgerTest extends IntegrationTest
+{
+  public function test_burger()
+  {
+    $resp = $this->api->get('/burger');
+
+    assertThat($resp->getStatusCode(), is(200));
+  }
 }
