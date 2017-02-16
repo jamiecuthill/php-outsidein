@@ -4,10 +4,12 @@ services:
   api:
     container_name: api
     build: .
+    volumes:
+     - ".:/var/www:ro"
     depends_on:
       - mysql
     ports:
-      - "8080:80"
+      - "0:80"
 
   mysql:
     container_name: mysql

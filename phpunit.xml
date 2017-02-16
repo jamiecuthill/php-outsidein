@@ -8,7 +8,7 @@
         </testsuite>
     </testsuites>
     <listeners>
-        <listener class="\OutsideIn\Tests\ContainerTestListener" />
+        <listener class="\OutsideIn\Tests\Integration\ContainerTestListener"/>
         <listener class="\Mockery\Adapter\Phpunit\TestListener"
                   file="vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/TestListener.php">
         </listener>

@@ -1,6 +1,6 @@
 <?php
 
-namespace OutsideIn\Tests;
+namespace OutsideIn\Tests\Integration;
 
 use Mockery\Exception\RuntimeException;
 
