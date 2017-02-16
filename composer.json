@@ -17,8 +17,8 @@
     },
     "autoload": {
         "psr-4": {
-            "OutsideIn\\": "src",
-            "OutsideIn\\Tests\\": "tests"
+            "OutsideIn\\": "src/OutsideIn",
+            "OutsideIn\\Tests\\": "tests/OutsideIn/Tests"
         }
     }
 }

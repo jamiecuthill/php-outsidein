@@ -21,7 +21,7 @@ class HealthcheckTest extends \PHPUnit_Framework_TestCase
     $app = new App();
     $this->app = $app;
 
-    require __DIR__ . '/../../../src/routes.php';
+    require __DIR__ . '/../../../../../src/routes.php';
   }
 
   public function test_root()
