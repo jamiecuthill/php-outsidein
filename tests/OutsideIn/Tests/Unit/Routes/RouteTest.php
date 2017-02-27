@@ -8,7 +8,7 @@ use Slim\Http\Headers;
 use Slim\Http\Request;
 use Slim\Http\Uri;
 
-class RouteTest extends \PHPUnit_Framework_TestCase
+abstract class RouteTest extends \PHPUnit_Framework_TestCase
 {
   /** @var App */
   protected $app;

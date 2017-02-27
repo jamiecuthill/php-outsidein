@@ -6,6 +6,8 @@ $app = new \Slim\App();
 
 $di = $app->getContainer();
 
+$di['burgerGetter'] = new \OutsideIn\Burger\BurgerGetter();
+
 include 'routes.php';
 
 $app->run();

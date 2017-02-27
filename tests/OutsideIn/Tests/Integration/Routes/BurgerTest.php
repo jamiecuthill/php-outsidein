@@ -12,4 +12,16 @@ class BurgerTest extends IntegrationTest
 
     assertThat($resp->getStatusCode(), is(200));
   }
+
+  public function test_burger_returnsBurger()
+  {
+    $resp = $this->api->get('/burger');
+
+    $rawBody = (string)$resp->getBody();
+    $body = json_decode($rawBody, true);
+
+    assertThat($body, is(not(null)));
+    assertThat($body, hasKey('burger'));
+    assertThat($body['burger'], hasKeyValuePair('name', 'Hamburger'));
+  }
 }

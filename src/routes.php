@@ -13,5 +13,10 @@ $app->get('/health', function (Request $request, Response $response) {
   return $response;
 });
 
-$app->get('/burger', function (Request $request, Response $response) {
+$app->get('/burger', function (Request $request, Response $response) use ($app) {
+  /** @var \OutsideIn\Burger\IBurgerGetter $burgerGetter */
+  $burgerGetter = $app->getContainer()['burgerGetter'];
+  $burger = $burgerGetter->getBurger();
+
+  return $response->withJson(['burger' => $burger]);
 });
