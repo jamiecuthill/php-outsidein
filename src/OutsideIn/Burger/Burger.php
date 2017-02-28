@@ -8,13 +8,17 @@ class Burger implements \JsonSerializable
    * @var string
    */
   private $name;
+
+  /**
+   * @var string[]
+   */
   private $toppings;
 
   /**
    * Burger constructor.
    *
-   * @param $name
-   * @param $toppings
+   * @param string $name
+   * @param string[] $toppings
    */
   public function __construct($name, $toppings)
   {
