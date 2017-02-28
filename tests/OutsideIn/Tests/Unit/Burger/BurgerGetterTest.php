@@ -48,4 +48,9 @@ class BurgerGetterTest extends \PHPUnit_Framework_TestCase
 
     assertThat(count($burger1->getToppings()), is(not(equalTo(count($burger2->getToppings())))));
   }
+
+  public function test_getBurger_containsUniqueToppings()
+  {
+    // TODO
+  }
 }
