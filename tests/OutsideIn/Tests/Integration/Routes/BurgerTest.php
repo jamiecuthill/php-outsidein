@@ -23,5 +23,9 @@ class BurgerTest extends IntegrationTest
     assertThat($body, is(not(null)));
     assertThat($body, hasKey('burger'));
     assertThat($body['burger'], hasKeyValuePair('name', 'Hamburger'));
+    assertThat($body['burger'], hasKeyValuePair('toppings', allOf(
+      hasItem('Mayo'),
+      hasItem('Lettuce')
+    )));
   }
 }

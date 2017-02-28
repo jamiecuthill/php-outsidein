@@ -32,7 +32,7 @@ class BurgerTest extends RouteTest
   {
     $this->burgerGetter->shouldReceive('getBurger')
       ->once()
-      ->andReturn(new Burger('Cheese Burger'));
+      ->andReturn(new Burger('Cheese Burger', []));
 
     $this->app->process($this->newRequest('GET', '/burger'), new Response());
   }
@@ -41,7 +41,7 @@ class BurgerTest extends RouteTest
   {
     $this->burgerGetter->shouldReceive('getBurger')
       ->once()
-      ->andReturn(new Burger('Hamburger'));
+      ->andReturn(new Burger('Hamburger', ['Tomato']));
 
     $response = $this->app->process($this->newRequest('GET', '/burger'), new Response());
 
@@ -51,5 +51,6 @@ class BurgerTest extends RouteTest
     assertThat($body, is(not(null)));
     assertThat($body, hasKey('burger'));
     assertThat($body['burger'], hasKeyValuePair('name', 'Hamburger'));
+    assertThat($body['burger'], hasKeyValuePair('toppings', ['Tomato']));
   }
 }

@@ -8,15 +8,18 @@ class Burger implements \JsonSerializable
    * @var string
    */
   private $name;
+  private $toppings;
 
   /**
    * Burger constructor.
    *
    * @param $name
+   * @param $toppings
    */
-  public function __construct($name)
+  public function __construct($name, $toppings)
   {
     $this->name = $name;
+    $this->toppings = $toppings;
   }
 
   /**
@@ -31,6 +34,7 @@ class Burger implements \JsonSerializable
   {
     return [
       'name' => $this->name,
+      'toppings' => $this->toppings,
     ];
   }
 
@@ -40,5 +44,13 @@ class Burger implements \JsonSerializable
   public function getName()
   {
     return $this->name;
+  }
+
+  /**
+   * @return array
+   */
+  public function getToppings()
+  {
+    return $this->toppings;
   }
 }

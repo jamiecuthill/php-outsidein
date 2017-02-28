@@ -12,5 +12,7 @@ class BurgerGetterTest extends \PHPUnit_Framework_TestCase
     $burger = $burgerGetter->getBurger();
     assertThat($burger, is(anInstanceOf($burger)));
     assertThat($burger->getName(), is('Hamburger'));
+    assertThat($burger->getToppings(), hasItem('Mayo'));
+    assertThat($burger->getToppings(), hasItem('Lettuce'));
   }
 }
