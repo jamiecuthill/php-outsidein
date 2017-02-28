@@ -12,7 +12,31 @@ class BurgerGetterTest extends \PHPUnit_Framework_TestCase
     $burger = $burgerGetter->getBurger();
     assertThat($burger, is(anInstanceOf($burger)));
     assertThat($burger->getName(), is('Hamburger'));
-    assertThat($burger->getToppings(), hasItem('Mayo'));
-    assertThat($burger->getToppings(), hasItem('Lettuce'));
+    assertThat($burger->getToppings(), anyOf(
+      hasItem('Mayo'),
+      hasItem('Lettuce'),
+      hasItem('Pickles'),
+      hasItem('Tomatoes'),
+      hasItem('Grilled Onions'),
+      hasItem('Grilled Mushrooms'),
+      hasItem('Ketchup'),
+      hasItem('Mustard'),
+      hasItem('Relish'),
+      hasItem('Onions'),
+      hasItem('Jalapeño Peppers'),
+      hasItem('Green Peppers'),
+      hasItem('Bar-B-Que Sauce'),
+      hasItem('Hot Sauce'),
+      hasItem('A1 Sauce')
+    ));
+  }
+
+  public function test_getBurger_hasRandomToppings()
+  {
+    $burgerGetter = new BurgerGetter();
+    $burger1 = $burgerGetter->getBurger();
+    $burger2 = $burgerGetter->getBurger();
+
+    assertThat($burger1->getToppings(), is(not(equalTo($burger2->getToppings()))));
   }
 }
