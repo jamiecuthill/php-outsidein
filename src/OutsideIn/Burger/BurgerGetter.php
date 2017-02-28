@@ -27,8 +27,13 @@ class BurgerGetter implements IBurgerGetter
    */
   public function getBurger()
   {
-    $topping = mt_rand(0, count(self::$toppings)-1);
+    $numberOfAvailableToppings = count(self::$toppings);
 
-    return new Burger('Hamburger', [self::$toppings[$topping]]);
+    $toppings = [];
+    for ($i = $numberOfAvailableToppings - mt_rand(0, $numberOfAvailableToppings-1); $i > 0; $i--) {
+      $toppings[] = self::$toppings[mt_rand(0, $numberOfAvailableToppings - 1)];
+    }
+
+    return new Burger('Hamburger', $toppings);
   }
 }
