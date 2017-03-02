@@ -43,14 +43,30 @@ class BurgerGetterTest extends \PHPUnit_Framework_TestCase
   public function test_getBurger_hasRandomNumberOfToppings()
   {
     $burgerGetter = new BurgerGetter();
-    $burger1 = $burgerGetter->getBurger();
-    $burger2 = $burgerGetter->getBurger();
 
-    assertThat(count($burger1->getToppings()), is(not(equalTo(count($burger2->getToppings())))));
+    $collisions = 0;
+
+    for ($i = 1000; $i > 0; $i--) {
+      $burger1 = $burgerGetter->getBurger();
+      $burger2 = $burgerGetter->getBurger();
+
+      if (count($burger1->getToppings()) == count($burger2->getToppings())) {
+        $collisions++;
+      }
+    }
+    assertThat('toppings are mostly random', $collisions, is(lessThan(100)));
   }
 
   public function test_getBurger_containsUniqueToppings()
   {
-    // TODO
+    $burgerGetter = new BurgerGetter();
+
+    for ($i = 100; $i > 0; $i--) {
+      $burger = $burgerGetter->getBurger();
+
+      $uniqueToppings = array_flip($burger->getToppings());
+
+      assertThat($uniqueToppings, is(arrayWithSize(count($burger->getToppings()))));
+    }
   }
 }
